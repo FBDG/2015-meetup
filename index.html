@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>React 사용사례 + Redux</title>
+		<meta name="description" content="FBDG 2015 Ironhee 발표: React 사용사례 + Redux">
+		<meta name="author" content="Ironhee">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucjsent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/css/theme/beige.css" id="theme">
+		<link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ?
+				'node_modules/reveal.js/css/print/pdf.css' :
+				'node_modules/reveal.js/css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>React 사용사례</h1>
+					<h3>FBDG 2015</h3>
+					<p>
+						<small>Created by <a href="https://github.com/ironhee">Ironhee</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Ediket</h2>
+						<img
+							width="800"
+							data-src="img/ediket-1.png"
+						>
+					</section>
+					<section>
+						<img
+							width="800"
+							data-src="img/ediket-2.png"
+						>
+					</section>
+					<section>
+						<img
+							width="800"
+							data-src="img/ediket-3.png"
+						>
+					</section>
+					<section>
+						<img
+							width="800"
+							data-src="img/ediket-4.png"
+						>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>
+							구현로직
+						</h3>
+						<p class="fragment">
+							<strong>Frontend</strong> > Backend
+						</p>
+					</section>
+					<section>
+						<h3>
+							개발 사이클
+						</h3>
+						<p class="fragment">
+							<strong>단기</strong> > 장기
+						</p>
+					</section>
+					<section>
+						<h3>
+							스타트업
+						</h3>
+						<p class="fragment">
+							잦은 기획의 변경
+						</p>
+					</section>
+					<section>
+						<h3>
+							개발팀
+						</h3>
+						<p class="fragment">
+							3명
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>
+							기존 개발스택
+						</h2>
+					</section>
+					<section>
+						<img
+							width="200"
+							src="img/backbone.png"
+							alt="backbone"
+						/>
+						<img
+							width="200"
+							src="img/marionette.png"
+							alt="marionette"
+						/>
+						<img
+							width="200"
+							src="img/grunt.jpg"
+							alt="grunt"
+						/>
+						<img
+							width="200"
+							src="img/requirejs.png"
+							alt="requirejs"
+						/>
+						<img
+							width="200"
+							src="img/flask.jpg"
+							alt="flask"
+						/>
+						<img
+							width="200"
+							src="img/jinja2.png"
+							alt="jinja2"
+						/>
+						<img
+							width="200"
+							src="img/python-babel.png"
+							alt="python-babel"
+						/>
+					</section>
+					<section>
+						<p>
+							좀... 불편합니다
+						</p>
+					</section>
+					<section>
+						<h3>
+							Backbone + Marionette
+						</h3>
+						<p>
+							View 복잡함 (DOM 직접 제어)
+						</p>
+						<p>
+							-> 가독성 낮음
+						</p>
+						<p>
+							-> 재사용성이 떨어짐
+						</p>
+						<p>
+							-> <strong>협업이 어려움</strong>
+						</p>
+						<p>
+							그 밖의 여러가지...
+						</p>
+					</section>
+					<section>
+						<h3>
+							Require.js
+						</h3>
+						<p>
+							AMD 전용 코드
+						</p>
+						<p>
+							dependencies Hell
+						</p>
+						<p>
+							<strong>복잡함</strong>
+						</p>
+					</section>
+					<section>
+						<h3>
+							Flask + Jinja2 + Babel<br>
+							(server-side template)
+						</h3>
+						<p>
+							백엔드 개발자가 프론트 코드를 작성 </br>
+							or </br>
+							프론트 개발자가 백엔드 코드를 작성
+						</p>
+						<p>
+							<strong>Context Switching Cost</strong>
+						</p>
+						<p>
+							<strong>프론트와 백엔드의 역할 분리 X</strong>
+						</p>
+					</section>
+					<section>
+						<h3>
+							Flask<br>
+							(Server-Side Routing)
+						</h3>
+						<p>
+							팀의 핵심역량 = 프론트엔드 개발
+						</p>
+						<p>
+							-> Client-Side Routing (SPA) 필요
+						</p>
+					</section>
+					<section>
+						<h3>
+							Grunt
+						</h3>
+						<p>
+							사실 단점이라 할만한 단점은 없는 것 같다.
+						</p>
+						<p>
+							요즘게 너무 좋아서 안쓰는 케이스.
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>
+							현재 개발 스택
+						</h2>
+					</section>
+					<section>
+						<img
+							width="200"
+							src="img/flux.png"
+							alt="flux"
+						/>
+						<img
+							width="200"
+							src="img/babel.png"
+							alt="babel"
+						/>
+						<img
+							width="200"
+							src="img/webpack.png"
+							alt="webpack"
+						/>
+						<img
+							width="200"
+							src="img/react-intl.png"
+							alt="react-intl"
+						/>
+						<img
+							width="400"
+							src="img/react.png"
+							alt="react"
+						/>
+						<img
+							width="400"
+							src="img/nunjucks.png"
+							alt="nunjucks"
+						/>
+						<img
+							width="400"
+							src="img/react-router.png"
+							alt="react-router"
+						/>
+						<img
+							width="400"
+							src="img/react-starter-kit.png"
+							alt="react-starter-kit"
+						/>
+					</section>
+					<section>
+						<p>자세한 내용은 시연에서...</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>
+							후기
+						</h2>
+						<p class="fragment">
+							프론트엔드,
+						</p>
+						<p class="fragment">
+							로맨틱,
+						</p>
+						<p class="fragment">
+							성공적
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h1>End</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="node_modules/reveal.js/js/reveal.js"></script>
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{
+						src: 'node_modules/reveal.js/lib/js/classList.js',
+						condition: function() { return !document.body.classList; }
+					},
+					{
+						src: 'node_modules/reveal.js/plugin/markdown/marked.js',
+						condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+					},
+					{
+						src: 'node_modules/reveal.js/plugin/markdown/markdown.js',
+						condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+					},
+					{
+						src: 'node_modules/reveal.js/plugin/highlight/highlight.js',
+						async: true,
+						condition: function() { return !!document.querySelector( 'pre code' ); },
+						callback: function() { hljs.initHighlightingOnLoad(); }
+					},
+					{
+						src: 'node_modules/reveal.js/plugin/zoom-js/zoom.js',
+						async: true
+					},
+					{
+						src: 'node_modules/reveal.js/plugin/notes/notes.js',
+						async: true
+					}
+				]
+			});
+		</script>
+	</body>
+</html>
